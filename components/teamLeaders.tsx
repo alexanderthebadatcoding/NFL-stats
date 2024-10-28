@@ -191,7 +191,7 @@ export default function NFLTeamLeadersChart() {
                     y: number;
                     width: number;
                     height: number;
-                    value: number;
+                    value: string;
                     team: string;
                   }): React.JSX.Element {
                     const { x, y, width, height, value, team } = props;
