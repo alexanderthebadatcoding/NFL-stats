@@ -186,14 +186,15 @@ export default function NFLTeamLeadersChart() {
                 <Bar
                   dataKey="value"
                   name={selectedCategoryData.displayName}
-                  shape={function (props: {
-                    x: number;
-                    y: number;
-                    width: number;
-                    height: number;
-                    value: string;
-                    team: string;
-                  }): React.JSX.Element {
+                  shape={(props: {
+                    x: any;
+                    y: any;
+                    width: any;
+                    height: any;
+                    value: any;
+                    team: any;
+                  }) => {
+                    // eslint-disable-next-line react/prop-types
                     const { x, y, width, height, value, team } = props;
                     // console.log(
                     //   `Rendering bar for ${team} with color ${teamColors[team]}`
