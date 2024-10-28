@@ -196,9 +196,6 @@ export default function NFLTeamLeadersChart() {
                   }) => {
                     // eslint-disable-next-line react/prop-types
                     const { x, y, width, height, value, team } = props;
-                    // console.log(
-                    //   `Rendering bar for ${team} with color ${teamColors[team]}`
-                    // );
                     return (
                       <rect
                         x={x}
