@@ -1,5 +1,5 @@
 "use client";
-
+import React from "react";
 import { useEffect, useState } from "react";
 import {
   Bar,
@@ -91,7 +91,9 @@ export default function NFLTeamLeadersChart() {
         const data = await response.json();
         if (data.teamLeaders && data.teamLeaders.categories) {
           const processedCategories = data.teamLeaders.categories.map(
-            (category: any) => ({
+            (
+              category: any
+            ): { name: string; displayName: string; leaders: string } => ({
               name: category.name,
               displayName: category.displayName,
               leaders: category.leaders.slice(0, 5).map((leader: any) => ({
@@ -184,7 +186,14 @@ export default function NFLTeamLeadersChart() {
                 <Bar
                   dataKey="value"
                   name={selectedCategoryData.displayName}
-                  shape={(props) => {
+                  shape={function (props: {
+                    x: number;
+                    y: number;
+                    width: number;
+                    height: number;
+                    value: number;
+                    team: string;
+                  }): React.JSX.Element {
                     const { x, y, width, height, value, team } = props;
                     // console.log(
                     //   `Rendering bar for ${team} with color ${teamColors[team]}`
